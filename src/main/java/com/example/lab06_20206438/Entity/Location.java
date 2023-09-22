@@ -7,13 +7,14 @@ import lombok.Setter;
 import java.util.Date;
 
 @Getter
+@Entity
 @Setter
 @Table(name="location")
 public class Location {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "LocaitonID", nullable = false)
+    @Column(name = "LocationID", nullable = false)
     private Integer siteId;
     @Column(name = "City")
     private String ciudad;

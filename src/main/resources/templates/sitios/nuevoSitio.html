@@ -38,13 +38,7 @@
                             th:text="${jobs.jobTitle}" th:value="${jobs.jobId}">Open this select menu</option>
                 </select>
             </div>
-            <div class="mb-3">
-                <label for="employee" class="form-label">Jefe</label>
-                <select class="form-select" name="employee" id="employee">
-                    <option th:each="employee: ${listaEmpleado}"
-                            th:text="${employee.firstName}" th:value="${employee.managerId}">Open this select menu</option>
-                </select>
-            </div>
+
             <a th:href="@{/templates/sitios}" class="btn btn-danger">Cancelar</a>
             <button type="submit" class="btn btn-primary">Registrar</button>
         </form>
