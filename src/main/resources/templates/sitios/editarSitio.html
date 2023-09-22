@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
+    <title>Editar Sitio</title>
+</head>
+<body>
+<main>
+    <div class="container px-4 py-5">
+        <h1 class="pb-2 mb-3 border-bottom">Editar Sitio</h1>
+        <form method="post" th:action="@{/templates/sitios/guardar}" th:object="${sitio}" class="mt-2">
+            <input th:field="*{siteId}" name="id" type="hidden"/>
+            <div class="mb-3">
+                <label class="form-label">Nombre</label>
+                <input th:field="*{sitionombre}" type="text" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Puesto</label>
+                <select class="form-select" name="jobs" id="jobs">
+                    <option th:each="puesto: ${listaPuesto}"
+                            th:text="${puesto.jobTitle}" th:value="${puesto.jobId}"
+                            th:selected="${employee.jobs.jobId == puesto.jobId}">Open this select menu</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Fecha de instalacion</label>
+                <input th:field="*{dia}" type="text" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Latitud</label>
+                <input th:field="*{latitud}" type="text" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Longitud</label>
+                <input th:field="*{longitud}" type="text" class="form-control">
+            </div>
+
+            <a th:href="@{/templates/sitios}" class="btn btn-danger">Cancelar</a>
+            <button type="submit" class="btn btn-primary">Registrar</button>
+        </form>
+    </div>
+</main>
+<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>

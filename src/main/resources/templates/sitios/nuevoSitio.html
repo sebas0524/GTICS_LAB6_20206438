@@ -4,28 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
-    <title>Nuevo Empleado</title>
+    <title>Nuevo Sitio</title>
 </head>
 <body>
 <main>
     <div class="container px-4 py-5">
-        <h1 class="pb-2 mb-3 border-bottom">Nuevo Empleado</h1>
+        <h1 class="pb-2 mb-3 border-bottom">Nuevo Sitio</h1>
         <form method="post" th:action="@{/templates/sitios/guardar}" class="mt-2">
             <div class="mb-3">
-                <label for="firstName" class="form-label">Nombre</label>
-                <input type="text" class="form-control" name="firstName" id="firstName">
+                <label for="sitionombre" class="form-label">Nombre</label>
+                <input type="text" class="form-control" name="sitionombre" id="sitionombre">
             </div>
             <div class="mb-3">
-                <label for="lastName" class="form-label">Apellido</label>
+                <label for="lastName" class="form-label">Locacion</label>
                 <input type="text" class="form-control" name="lastName" id="lastName">
             </div>
             <div class="mb-3">
-                <label for="email" class="form-label">Correo Electrónico</label>
-                <input type="text" class="form-control" name="email" id="email">
+                <label for="dia" class="form-label">Fecha de instalacion</label>
+                <input type="text" class="form-control" name="dia" id="dia">
             </div>
             <div class="mb-3">
-                <label for="password" class="form-label">Contraseña</label>
-                <input type="text" class="form-control" name="password" id="password">
+                <label for="latitud" class="form-label">Latitud</label>
+                <input type="text" class="form-control" name="latitud" id="latitud">
+            </div>
+            <div class="mb-3">
+                <label for="longitud" class="form-label">Longitud</label>
+                <input type="text" class="form-control" name="longitud" id="longitud">
             </div>
             <div class="mb-3">
                 <label for="jobs" class="form-label">Puesto</label>
@@ -35,21 +39,10 @@
                 </select>
             </div>
             <div class="mb-3">
-                <label for="salary" class="form-label">Sueldo</label>
-                <input type="text" class="form-control" name="salary" id="salary">
-            </div>
-            <div class="mb-3">
                 <label for="employee" class="form-label">Jefe</label>
                 <select class="form-select" name="employee" id="employee">
                     <option th:each="employee: ${listaEmpleado}"
                             th:text="${employee.firstName}" th:value="${employee.managerId}">Open this select menu</option>
-                </select>
-            </div>
-            <div class="mb-3">
-                <label for="department" class="form-label">Departamento</label>
-                <select class="form-select" name="department" id="department">
-                    <option th:each="departamento: ${listaDepartamento}"
-                            th:text="${departamento.departmentName}" th:value="${departamento.departmentId}">Open this select menu</option>
                 </select>
             </div>
             <a th:href="@{/templates/sitios}" class="btn btn-danger">Cancelar</a>

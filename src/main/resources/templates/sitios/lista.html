@@ -11,36 +11,30 @@
 <body>
 <div class="container">
     <div th:replace="index :: menu"></div>
-    <h2>Lista Empleados</h2>
-    <a class="btn btn-primary mt-4 mb-4" th:href="@{/templates/sitios/nuevoEmpleado}">Nuevo Empleado</a>
-    <form method="post" th:action="@{/templates/sitios/buscarPorNombre}">
-        <div class="input-group mb-3">
-            <input name="searchField" class="form-control" type="text" placeholder="Texto a buscar" th:value="${textoBuscado}" >
-            <button class="btn btn-primary" type="submit">Buscar</button>
-            <a class="btn btn-outline-secondary" th:href="@{/templates/sitios}">Limpiar</a>
-        </div>
-    </form>
+    <h2>Lista Sitios</h2>
+    <a class="btn btn-primary mt-4 mb-4" th:href="@{/templates/sitios/nuevoSitio}">Nuevo Empleado</a>
+
     <div th:if="${mensaje != null}" th:text="${mensaje}" class="alert alert-success" role="alert"></div>
     <table class="table table-sm">
         <tr>
             <th>#</th>
             <th>Nombre</th>
-            <th>Apellido</th>
-            <th>Puesto</th>
-            <th>Departamento</th>
-            <th>Ciudad</th>
+            <th>Locación</th>
+            <th>Fecha de Instalación</th>
+            <th>Latitud</th>
+            <th>Longitud</th>
             <th></th>
             <th></th>
         </tr>
-        <tr th:each="employee, info: ${listaEmpleados}">
+        <tr th:each="sitio, info: ${listaSitios}">
             <td th:text="${info.index + 1}"></td>
-            <td th:text="${employee.firstName}"></td>
-            <td th:text="${employee.lastName}"></td>
-            <td th:text="${employee.jobs.jobTitle}"></td>
-            <td th:text="${employee.department.departmentName}"></td>
-            <td th:text="${employee.department.locationsId.city}"></td>
-            <td><a class="btn btn-primary" th:href="@{'/employee/editar?id=' + ${employee.id}}">Editar</a></td>
-            <td><a class="btn btn-danger" th:href="@{'/employee/borrar?id=' + ${employee.id}}">Borrar</a></td>
+            <td th:text="${sitio.sitionombre}"></td>
+            <td th:text="${sitio.locationId.pais} + - +  ${sitio.locationId.ciudad}"></td>
+            <td th:text="${sitio.dia}"></td>
+            <td th:text="${sitio.latitud}"></td>
+            <td th:text="${sitio.longitud}"></td>
+            <td><a class="btn btn-primary" th:href="@{'/sitio/editar?id=' + ${sitio.siteId}}">Editar</a></td>
+            <td><a class="btn btn-danger" th:href="@{'/sitio/borrar?id=' + ${sitio.siteId}}">Borrar</a></td>
         </tr>
     </table>
 </div>
